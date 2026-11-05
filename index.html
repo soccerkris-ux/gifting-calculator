@@ -949,4 +949,141 @@
       }
 
       if (errors.length > 0) {
-        get("error").textContent = errors.join(" "
+        get("error").textContent = errors.join(" ");
+        get("results").hidden = true;
+        return;
+      }
+
+      const startingExclusion =
+        BASE_EXCLUSION * parameters.people;
+
+      const giftCapacity = Math.max(
+        0,
+        Math.min(
+          parameters.estate,
+          startingExclusion - parameters.prior
+        )
+      );
+
+      get("giftSlider").max = giftCapacity;
+      get("giftSlider").value =
+        Math.min(parameters.gift, giftCapacity);
+
+      get("capacity").textContent =
+        "Modeled available gift capacity: " +
+        formatMoney(giftCapacity) +
+        ".";
+
+      if (parameters.prior > startingExclusion) {
+        errors.push(
+          "Prior gifts exceed the starting exclusion supported " +
+          "by this simplified model."
+        );
+      }
+
+      if (parameters.gift > giftCapacity) {
+        errors.push(
+          "Reduce the gift to " +
+          formatMoney(giftCapacity) +
+          " or less."
+        );
+      }
+
+      get("error").textContent = errors.join(" ");
+      get("results").hidden = errors.length > 0;
+
+      if (errors.length > 0) {
+        return;
+      }
+
+      const retain = calculateScenario(
+        parameters,
+        parameters.years,
+        0
+      );
+
+      const gift = calculateScenario(
+        parameters,
+        parameters.years,
+        parameters.gift
+      );
+
+      const savings = retain.tax - gift.tax;
+
+      get("savings").textContent = formatMoney(savings);
+
+      get("resultNote").textContent =
+        savings < 0
+          ? "Negative savings: gifting increases modeled federal tax."
+          : "Retain-versus-gift comparison at year " +
+            parameters.years +
+            ".";
+
+      get("outside").textContent =
+        formatMoney(gift.outside);
+
+      get("exclusion").textContent =
+        formatMoney(gift.exclusion);
+
+      const rows = [
+        [
+          "Assets remaining in estate",
+          retain.estate,
+          gift.estate
+        ],
+        [
+          "Gifted assets outside estate",
+          retain.outside,
+          gift.outside
+        ],
+        [
+          "Projected exclusion remaining after taxable gifts",
+          retain.remainingExclusion,
+          gift.remainingExclusion
+        ],
+        [
+          "Modeled federal estate tax",
+          retain.tax,
+          gift.tax
+        ],
+        [
+          "Family wealth after modeled federal tax",
+          retain.net,
+          gift.net
+        ]
+      ];
+
+      get("comparison").innerHTML = rows
+        .map(row => `
+          <tr>
+            <td>${row[0]}</td>
+            <td>${formatMoney(row[1])}</td>
+            <td>${formatMoney(row[2])}</td>
+          </tr>
+        `)
+        .join("");
+
+      drawChart(parameters);
+    }
+
+    for (const id of Object.keys(defaults)) {
+      get(id).addEventListener("input", update);
+    }
+
+    get("giftSlider").addEventListener("input", () => {
+      get("gift").value = get("giftSlider").value;
+      update();
+    });
+
+    get("reset").addEventListener("click", () => {
+      for (const [id, value] of Object.entries(defaults)) {
+        get(id).value = value;
+      }
+
+      update();
+    });
+
+    update();
+  </script>
+</body>
+</html>
