@@ -22,7 +22,7 @@
     main {
       max-width: 1120px;
       margin: auto;
-      padding: 35px 20px;
+      padding: 36px 20px;
     }
 
     h1 {
@@ -32,8 +32,8 @@
     }
 
     h2 {
-      margin-top: 0;
       font-size: 21px;
+      margin-top: 0;
     }
 
     h3 {
@@ -46,10 +46,10 @@
     }
 
     .eyebrow {
-      color: #607780;
       font-size: 12px;
-      font-weight: 700;
       letter-spacing: 0.1em;
+      color: #617780;
+      font-weight: 700;
     }
 
     .intro {
@@ -65,11 +65,11 @@
     }
 
     .card {
-      background: white;
-      border: 1px solid #d9e1e3;
-      border-radius: 18px;
       padding: 24px;
-      margin: 20px 0;
+      background: white;
+      border: 1px solid #dbe3e5;
+      border-radius: 18px;
+      margin-top: 20px;
     }
 
     label {
@@ -79,15 +79,16 @@
       margin-top: 17px;
     }
 
-    input {
+    input,
+    select {
       width: 100%;
+      padding: 10px;
       font: inherit;
       color: inherit;
-      padding: 10px;
-      border: 1px solid #b8c9ce;
+      border: 1px solid #bbccd0;
       border-radius: 8px;
-      margin-top: 6px;
       background: white;
+      margin-top: 6px;
     }
 
     input[type="range"] {
@@ -97,51 +98,65 @@
 
     small {
       display: block;
-      line-height: 1.5;
       font-size: 12px;
       color: #607780;
-      margin-top: 6px;
+      line-height: 1.5;
+      margin-top: 7px;
     }
 
     .hero {
       background: #244c5a;
       color: white;
-      border-radius: 12px;
-      padding: 23px;
+      padding: 24px;
+      border-radius: 13px;
     }
 
     .hero-label {
       font-size: 14px;
-      color: #d6e6ed;
+      color: #d5e6ec;
     }
 
     .hero output {
       display: block;
       font-size: clamp(30px, 4vw, 42px);
       font-weight: 750;
-      margin: 8px 0;
+      margin: 10px 0;
       overflow-wrap: anywhere;
     }
 
     .hero-note {
-      color: #d6e6ed;
       font-size: 13px;
       line-height: 1.5;
+      color: #d5e6ec;
     }
 
     .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 18px;
-      margin: 20px 0;
+      margin: 22px 0;
     }
 
     .stats output {
-      font-size: 23px;
-      font-weight: 700;
       display: block;
+      font-weight: 700;
+      font-size: 24px;
       margin-top: 6px;
       overflow-wrap: anywhere;
+    }
+
+    .notice {
+      background: #fff3d6;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .status {
+      background: #edf4f6;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13px;
     }
 
     .table-wrap {
@@ -149,16 +164,16 @@
     }
 
     table {
-      border-collapse: collapse;
       width: 100%;
+      border-collapse: collapse;
       font-size: 13px;
     }
 
     th,
     td {
+      text-align: right;
       padding: 11px 5px;
       border-bottom: 1px solid #e0e7e9;
-      text-align: right;
       vertical-align: top;
     }
 
@@ -172,18 +187,10 @@
       background: #f0f5f7;
     }
 
-    .notice {
-      background: #fff3d6;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 13px;
-    }
-
-    .status {
-      background: #eef4f6;
-      padding: 12px;
-      border-radius: 8px;
-      font-size: 13px;
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     details {
@@ -204,21 +211,15 @@
       margin-bottom: 10px;
     }
 
-    svg {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
     button {
       background: #244c5a;
       color: white;
       border: 0;
       border-radius: 8px;
       padding: 10px 16px;
-      margin-top: 20px;
-      cursor: pointer;
       font: inherit;
+      cursor: pointer;
+      margin-top: 20px;
     }
 
     button:hover {
@@ -226,6 +227,7 @@
     }
 
     input:focus-visible,
+    select:focus-visible,
     button:focus-visible,
     summary:focus-visible {
       outline: 3px solid #9fc7d5;
@@ -233,19 +235,19 @@
     }
 
     #error {
-      color: #9d2525;
+      color: #a12626;
       font-size: 13px;
-    }
-
-    a {
-      color: #21677f;
     }
 
     footer {
       font-size: 12px;
       color: #607780;
       line-height: 1.6;
-      margin-top: 20px;
+      margin: 24px 0;
+    }
+
+    a {
+      color: #21677f;
     }
 
     [hidden] {
@@ -273,21 +275,20 @@
 <body>
   <main>
     <div class="eyebrow">
-      NEW YORK ONLY · ONE RESIDENT DONOR · EDUCATIONAL PROTOTYPE
+      NEW YORK ONLY · GIFT TODAY · EDUCATIONAL PROTOTYPE
     </div>
 
-    <h1>Gift today. Explore New York’s estate tax.</h1>
+    <h1>Give today. Explore tomorrow.</h1>
 
     <p class="intro">
-      Compare retaining assets with making a one-time gift.
-      Includes New York’s graduated tax table, exclusion-credit
-      phaseout, and the modeled gift’s three-year addback.
-      Federal tax is not calculated.
+      See how a lifetime gift could change projected New York
+      estate tax. Choose one donor or two spouses, then explore
+      the years ahead.
     </p>
 
     <noscript>
       <p class="notice">
-        Please enable JavaScript to use this calculator.
+        Enable JavaScript to use this calculator.
       </p>
     </noscript>
 
@@ -295,8 +296,15 @@
       <section class="card" aria-labelledby="assumptions-heading">
         <h2 id="assumptions-heading">Your assumptions</h2>
 
+        <label for="people">Planning for</label>
+
+        <select id="people">
+          <option value="1">One individual</option>
+          <option value="2">Married couple</option>
+        </select>
+
         <label for="estate">
-          Current estate before gift ($)
+          Current estate before gifting ($)
         </label>
 
         <input
@@ -305,66 +313,71 @@
           min="0"
           max="1000000000"
           step="any"
-          value="10000000"
+          value="20000000"
+        >
+
+        <small id="estateHelp"></small>
+
+        <label for="prior">
+          Prior lifetime gifts using federal exemption ($)
+        </label>
+
+        <input
+          id="prior"
+          type="number"
+          min="0"
+          step="any"
+          value="0"
         >
 
         <small>
-          One New York resident. Assume all entered assets are
-          subject to New York estate tax, with no deductions,
-          out-of-state real or tangible property, QTIP adjustments,
-          or special exclusions.
+          Combined total for a couple, assumed equally allocated.
+          Used only to set today’s modeled gift capacity.
+          No other New York gift addbacks are modeled.
         </small>
 
-        <label for="gift">
-          One-time taxable gift ($)
-        </label>
+        <label for="gift">Gift today ($)</label>
 
         <input
           id="gift"
           type="number"
           min="0"
           step="any"
-          value="3000000"
+          value="10000000"
         >
 
         <input
           id="giftSlider"
           type="range"
           min="0"
-          max="10000000"
+          max="15000000"
           step="1000"
-          value="3000000"
-          aria-label="Adjust gift amount"
+          value="10000000"
+          aria-label="Adjust gift today"
         >
+
+        <small id="capacity"></small>
 
         <small>
-          Enter the taxable gift after any annual exclusion.
-          Assumes no federal gift tax and sufficient federal
-          exemption; this tool does not verify either.
-          No separate annual-exclusion transfer is modeled.
+          Assumes a completed gift using available federal
+          lifetime exemption, with no gift tax payable.
+          Annual-exclusion gifts are not separately modeled.
         </small>
 
-        <label for="giftDate">Gift date</label>
-
-        <input
-          id="giftDate"
-          type="date"
-          min="2026-01-01"
-          max="2100-12-31"
-          value="2026-11-05"
-        >
-
-        <label for="deathDate">
-          Hypothetical date of death
+        <label for="years">
+          Years until estate settlement
         </label>
 
         <input
-          id="deathDate"
-          type="date"
-          min="2026-01-01"
-          max="2150-12-31"
-          value="2046-11-05"
+          id="years"
+          type="number"
+          min="0"
+          max="50"
+          step="1"
+          value="20"
         >
+
+        <small id="yearsHelp"></small>
 
         <label for="rate">
           Hypothetical annual asset return (%)
@@ -380,7 +393,7 @@
         >
 
         <label for="inflation">
-          Projected New York exclusion growth (%)
+          Projected annual New York exclusion growth (%)
         </label>
 
         <input
@@ -393,10 +406,9 @@
         >
 
         <small>
-          Starting 2026 exclusion: $7,350,000. Projects smooth
-          annual growth from 2026 based on the calendar year
-          of death. Not statutory indexing or rounding.
-          Current tax brackets remain fixed.
+          2026 New York starting exclusion: $7.35 million.
+          Smooth projection, not actual statutory indexing
+          or rounding. New York tax brackets remain fixed.
         </small>
 
         <button id="reset" type="button">
@@ -420,24 +432,30 @@
 
           <div class="stats">
             <div>
-              <small>Projected New York exclusion</small>
+              <small>
+                Projected New York exclusion at settlement
+              </small>
+
               <output id="exclusion"></output>
             </div>
 
             <div>
               <small>105% credit-loss threshold</small>
+
               <output id="cliff"></output>
             </div>
           </div>
 
-          <p id="addbackStatus" class="status"></p>
+          <p id="scenario" class="status"></p>
+
+          <p id="addback" class="notice"></p>
 
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th scope="col">At hypothetical death</th>
-                  <th scope="col">Retain</th>
+                  <th scope="col">At modeled settlement</th>
+                  <th scope="col">Retain assets</th>
                   <th scope="col">Gift today</th>
                 </tr>
               </thead>
@@ -446,31 +464,30 @@
             </table>
           </div>
 
-          <h3>New York tax comparison</h3>
+          <h3>Projected New York estate tax</h3>
 
           <svg
-            id="chart"
-            viewBox="0 0 600 190"
+            viewBox="0 0 600 185"
             role="img"
             aria-labelledby="chartTitle chartDescription"
           >
             <title id="chartTitle">
-              New York estate-tax comparison
+              Retain versus gift New York estate-tax comparison
             </title>
 
             <desc id="chartDescription">
-              Estimated New York estate tax when retaining assets
-              compared with making the modeled gift.
+              Two bars compare projected New York estate tax
+              when retaining assets and when making the gift.
             </desc>
 
             <g id="chartContent"></g>
           </svg>
 
           <p class="notice">
-            New York-only results. Do not simply add these savings
-            to a separate federal calculator: federal deductibility
-            of state death taxes can change the combined benefit.
-            Income-tax and basis consequences are excluded.
+            New York-only illustration. Federal tax is not
+            calculated. Do not simply add savings to a separate
+            federal model; state death-tax deductibility can
+            change the combined result.
           </p>
         </div>
       </section>
@@ -478,98 +495,123 @@
 
     <section class="card">
       <details open>
-        <summary>Scope, assumptions, and limitations</summary>
+        <summary>How this model works</summary>
 
         <ul>
           <li>
-            One New York resident donor only. No married-couple
-            toggle: this version does not model marital deductions,
-            separate ownership, QTIP, trusts, first and second
-            deaths, or portability. It does not determine
-            residency or filing obligations.
+            Individual mode: the entered estate and gift belong
+            to one New York resident. The calculation uses one
+            projected New York exclusion.
           </li>
 
           <li>
-            All current estate assets are assumed includible for
-            New York purposes. No expenses, debts, charitable
-            deductions, outside-New-York real or tangible property,
-            or other return adjustments are modeled.
+            Married-couple mode: the entered estate is combined.
+            Assets, prior gifts, and today’s gift are assumed
+            equally allocated. Remaining assets at first death
+            pass to the survivor without modeled first-death tax.
+            At second death, all remaining assets are in the
+            survivor’s estate and only one New York exclusion
+            is used.
           </li>
 
           <li>
-            The modeled gift is assumed completed while a New York
-            resident, of property subject to the addback rule, with
-            no retained interests causing estate inclusion.
-            No other prior gifts or addbacks are modeled.
-            No gift tax is paid. Verify available federal
-            exemption separately.
+            No credit-shelter trust, state QTIP planning,
+            first-death costs, or preservation of the first
+            spouse’s exclusion is modeled. New York does not
+            provide federal-style portability. This is one
+            specific outright-to-survivor scenario, not a
+            general calculation for all married couples.
           </li>
 
           <li>
-            For death before January 1, 2032, the original taxable
-            gift amount is added to the modeled New York taxable
-            estate if death occurs on or before the third
-            anniversary of the gift. The exact third anniversary
-            is conservatively included; confirm boundary dates
-            with counsel. Appreciation is not added back.
-            Deaths on or after January 1, 2032 receive no addback
-            under this model of the currently scheduled expiration.
+            The slider uses $15 million of federal exemption per
+            donor as a 2026 starting assumption, less prior gifts
+            and capped by current assets. Both spouses are assumed
+            able to make their allocated gifts. No deceased-spouse
+            unused exclusion or federal gift tax is modeled.
+            There is no automatic tax-law update.
           </li>
 
           <li>
-            All entered assets grow at the same constant rate from
-            the gift date to death, using actual days divided by
-            365.2425. No spending, distributions, additional gifts,
-            expenses, income tax, or law changes are modeled.
+            The gift date is your browser’s local date when this
+            page is opened. Settlement is the selected number of
+            calendar years later. Dates remain visible in the
+            result. In couple mode, the horizon means second
+            death; no first-death date is modeled.
           </li>
 
           <li>
-            The 2026 exclusion is $7,350,000. Future exclusions use
-            the entered annual growth assumption for each calendar
-            year after 2026, without statutory rounding.
-            Rates and bracket thresholds use the current ET-706
-            table and are held constant.
+            Before January 1, 2032, an otherwise includible gift
+            is added back if settlement falls on or before the
+            third anniversary. Exact anniversary inclusion is
+            a conservative boundary assumption requiring review.
+            Individual mode adds the full original gift;
+            couple mode adds only the survivor’s assumed half.
+            Appreciation is not added back.
           </li>
 
           <li>
-            At or below the exclusion, modeled tax is zero.
-            Between 100% and 105% of the exclusion, the credit
-            is the table tax on the reduced exclusion amount
-            specified by the ET-706 instructions—not simply a
-            linear reduction of the full credit.
-            The worksheet ratio is rounded to four decimal
-            places for this estimate.
-            Above 105%, no exclusion credit is allowed.
+            Couple mode does not calculate any first-death gift
+            addback or first-death tax. Short-horizon couple
+            results therefore are not total combined estate
+            taxes across both deaths. The gift attributed to
+            the first spouse is not added to the survivor’s
+            estate.
           </li>
 
           <li>
-            Family wealth includes only current estate assets
-            and the gift from those assets, less New York estate
-            tax. It excludes federal estate tax, gift tax,
-            income taxes, carryover basis versus a potential
-            basis adjustment at death, and all other taxes.
-            Negative returns can increase New York tax under
-            an addback scenario.
+            On or after January 1, 2032, no gift addback is
+            modeled under the currently scheduled expiration.
+            A future extension would require a code update.
           </li>
 
           <li>
-            All projected dollar amounts are nominal.
-            Exclusion growth does not adjust the results
-            for inflation or purchasing power.
+            The New York exclusion is projected from $7.35 million
+            in 2026 using the entered growth assumption by calendar
+            year. Lifetime gifts are not subtracted from that
+            New York exclusion. Applicable gifts instead enter
+            the New York tax base through the addback rule.
           </li>
 
           <li>
-            Educational prototype only. No automatic legal
-            updates. Independently verify calculations,
-            current law, assumptions, and applicable compliance
-            requirements before distributing.
-            Not tax, legal, investment, or insurance advice.
+            The current ET-706 graduated tax table and
+            exclusion-credit phaseout are used. Between 100%
+            and 105% of the exclusion, the credit is table tax
+            on the reduced exclusion specified by the worksheet.
+            The ratio is rounded to four decimal places.
+            Above 105%, the credit is zero.
+            This is not a tax-return preparation engine.
+          </li>
+
+          <li>
+            All assets are assumed subject to New York estate
+            tax. No debts, expenses, charitable or marital
+            deductions at settlement, out-of-state real or
+            tangible property, QTIP adjustments, other prior
+            gift addbacks, or special exclusions are modeled.
+          </li>
+
+          <li>
+            Retained and gifted assets earn the same constant
+            return. No spending, distributions, additional gifts,
+            income taxes, basis effects, or federal taxes are
+            modeled. Family wealth includes only the entered
+            current estate and the gift from it, less modeled
+            New York tax. Prior gifts are not included in
+            displayed wealth. Outputs are nominal dollars.
+          </li>
+
+          <li>
+            Educational prototype. Obtain independent tax,
+            legal, calculation, and applicable compliance review
+            before distributing. This page is not individualized
+            advice or a carrier illustration.
           </li>
         </ul>
       </details>
 
       <details>
-        <summary>Official sources and review status</summary>
+        <summary>Sources and version</summary>
 
         <p>
           <a
@@ -577,7 +619,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            New York estate tax overview and 2026 exclusion
+            New York estate tax overview
           </a>
         </p>
 
@@ -587,7 +629,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            Form ET-706 and estate-tax table
+            ET-706 tax table
           </a>
         </p>
 
@@ -597,30 +639,30 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            ET-706 instructions, credit worksheet,
-            and gift-addback rules
+            ET-706 instructions and gift addback
           </a>
         </p>
 
         <p>
-          The instructions retrieved for this prototype use
-          2025 dollar examples. This calculator uses the
-          separately published 2026 exclusion and applies
-          the same credit mechanism.
+          <a
+            href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            IRS 2026 federal exclusion
+          </a>
         </p>
 
         <p>
-          Research date: November 5, 2026.
+          Prepared November 2026. No automatic legal updates.
           Not independently reviewed or browser-tested.
-          Final outputs are rounded for display, not
-          for preparation of a tax return.
         </p>
       </details>
     </section>
 
     <footer>
-      Calculations run in your browser. This code does not
-      transmit or save inputs and loads no third-party scripts.
+      Inputs are calculated locally. This code does not transmit
+      or save them and loads no third-party scripts.
       Hosting providers may log visits.
       Do not enter identifying client information.
     </footer>
@@ -629,25 +671,29 @@
   <script>
     const get = id => document.getElementById(id);
 
-    const BASE_EXCLUSION = 7350000;
+    const BASE_NY_EXCLUSION = 7350000;
+    const BASE_FEDERAL_EXCLUSION = 15000000;
     const BASE_YEAR = 2026;
-    const ADDBACK_EXPIRATION = "2032-01-01";
+    const ADDBACK_EXPIRATION =
+      new Date("2032-01-01T00:00:00Z");
 
     const defaults = {
-      estate: 10000000,
-      gift: 3000000,
-      giftDate: "2026-11-05",
-      deathDate: "2046-11-05",
+      people: 1,
+      estate: 20000000,
+      prior: 0,
+      gift: 10000000,
+      years: 20,
       rate: 5,
       inflation: 2.5
     };
 
     const labels = {
-      estate: "Current estate before gift",
-      gift: "One-time taxable gift",
-      giftDate: "Gift date",
-      deathDate: "Hypothetical date of death",
-      rate: "Annual asset return",
+      people: "Planning unit",
+      estate: "Estate value",
+      prior: "Prior gifts",
+      gift: "Gift today",
+      years: "Years",
+      rate: "Asset return",
       inflation: "New York exclusion growth"
     };
 
@@ -658,10 +704,6 @@
         maximumFractionDigits: 0
       }).format(value);
 
-    /*
-      Each entry:
-      [lower bracket threshold, base tax, marginal rate]
-    */
     const taxBrackets = [
       [0,        0,       0.0306],
       [500000,   15300,   0.05],
@@ -704,20 +746,20 @@
     }
 
     function calculateNewYorkTax(taxableEstate, exclusion) {
-      const taxBeforeCredit =
+      const grossTax =
         calculateTableTax(taxableEstate);
 
       if (taxableEstate <= exclusion) {
         return {
           tax: 0,
-          credit: taxBeforeCredit,
+          credit: grossTax,
           status: "At or below exclusion"
         };
       }
 
       if (taxableEstate > exclusion * 1.05) {
         return {
-          tax: taxBeforeCredit,
+          tax: grossTax,
           credit: 0,
           status: "Above 105%: no credit"
         };
@@ -742,37 +784,58 @@
         calculateTableTax(reducedExclusion);
 
       return {
-        tax: Math.max(0, taxBeforeCredit - credit),
+        tax: Math.max(0, grossTax - credit),
         credit,
         status: "Within credit phaseout"
       };
     }
 
-    function parseUTCDate(value) {
-      return new Date(value + "T00:00:00Z");
+    function getTodayUTC() {
+      const now = new Date();
+
+      return new Date(
+        Date.UTC(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate()
+        )
+      );
     }
 
-    function thirdAnniversary(date) {
-      const anniversary = new Date(date);
+    function addCalendarYears(date, years) {
+      const result = new Date(date);
 
-      anniversary.setUTCFullYear(
-        date.getUTCFullYear() + 3
+      result.setUTCFullYear(
+        date.getUTCFullYear() + years
       );
 
       /*
-        For a February 29 gift, use February 28 in a
-        non-leap anniversary year. Boundary treatment
-        remains an explicit assumption requiring review.
+        If February 29 rolls into March in a non-leap
+        year, use February 28 for the anniversary.
       */
-      if (anniversary.getUTCMonth() !== date.getUTCMonth()) {
-        anniversary.setUTCDate(0);
+      if (
+        result.getUTCMonth() !== date.getUTCMonth()
+      ) {
+        result.setUTCDate(0);
       }
 
-      return anniversary;
+      return result;
     }
 
+    function formatDate(date) {
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        timeZone: "UTC"
+      });
+    }
+
+    const giftDate = getTodayUTC();
+
     function drawChart(retainTax, giftTax) {
-      const maximum = Math.max(retainTax, giftTax, 1);
+      const maximum =
+        Math.max(1, retainTax, giftTax);
 
       const series = [
         {
@@ -789,12 +852,10 @@
 
       get("chartContent").innerHTML = series
         .map((item, index) => {
-          const textY = 35 + index * 80;
-          const barY = 45 + index * 80;
-          const width = Math.max(
-            0,
-            item.value / maximum * 580
-          );
+          const textY = 32 + index * 78;
+          const barY = 43 + index * 78;
+          const width =
+            item.value / maximum * 580;
 
           return `
             <text
@@ -820,60 +881,85 @@
     }
 
     function update() {
+      const parameters = {};
       const errors = [];
 
       for (const id of Object.keys(defaults)) {
         const input = get(id);
+        const value = Number(input.value);
 
-        if (!input.value || !input.validity.valid) {
+        parameters[id] = value;
+
+        if (
+          input.value === "" ||
+          !Number.isFinite(value) ||
+          !input.validity.valid
+        ) {
           errors.push(`Check ${labels[id]}.`);
         }
       }
 
-      const estate = Number(get("estate").value);
-      const gift = Number(get("gift").value);
-      const rate = Number(get("rate").value) / 100;
-      const inflation =
-        Number(get("inflation").value) / 100;
-
-      const giftDate =
-        parseUTCDate(get("giftDate").value);
-
-      const deathDate =
-        parseUTCDate(get("deathDate").value);
-
-      if (
-        !Number.isFinite(estate) ||
-        !Number.isFinite(gift) ||
-        !Number.isFinite(rate) ||
-        !Number.isFinite(inflation)
-      ) {
-        errors.push("Enter valid numeric assumptions.");
-      }
-
-      if (
-        Number.isNaN(giftDate.getTime()) ||
-        Number.isNaN(deathDate.getTime())
-      ) {
-        errors.push("Enter valid dates.");
-      }
-
-      if (deathDate < giftDate) {
+      if (![1, 2].includes(parameters.people)) {
         errors.push(
-          "Death date must be on or after the gift date."
+          "Select one individual or a married couple."
         );
       }
 
-      if (gift > estate) {
+      get("estateHelp").textContent =
+        parameters.people === 2
+          ? "Enter the combined estate of both spouses before gifting."
+          : "Enter the individual estate before gifting.";
+
+      get("yearsHelp").textContent =
+        parameters.people === 2
+          ? "Assumed second death. One New York exclusion at that time."
+          : "Assumed death and estate-settlement horizon.";
+
+      if (errors.length > 0) {
+        get("error").textContent = errors.join(" ");
+        get("results").hidden = true;
+        return;
+      }
+
+      const startingFederalExclusion =
+        BASE_FEDERAL_EXCLUSION *
+        parameters.people;
+
+      const giftCapacity = Math.max(
+        0,
+        Math.min(
+          parameters.estate,
+          startingFederalExclusion - parameters.prior
+        )
+      );
+
+      get("giftSlider").max = giftCapacity;
+
+      get("giftSlider").value = Math.min(
+        parameters.gift,
+        giftCapacity
+      );
+
+      get("capacity").textContent =
+        "Modeled 2026 federal gifting capacity: " +
+        formatMoney(giftCapacity) +
+        ".";
+
+      if (
+        parameters.prior >
+        startingFederalExclusion
+      ) {
         errors.push(
-          "The gift cannot exceed the entered estate."
+          "Prior gifts exceed the supported starting federal exemption."
         );
       }
 
-      if (Number.isFinite(estate) && estate >= 0) {
-        get("giftSlider").max = estate;
-        get("giftSlider").value =
-          Math.min(gift, estate);
+      if (parameters.gift > giftCapacity) {
+        errors.push(
+          "Reduce the gift to " +
+          formatMoney(giftCapacity) +
+          " or less."
+        );
       }
 
       get("error").textContent = errors.join(" ");
@@ -883,59 +969,68 @@
         return;
       }
 
-      const elapsedDays =
-        (deathDate - giftDate) / 86400000;
+      const settlementDate =
+        addCalendarYears(
+          giftDate,
+          parameters.years
+        );
 
-      const years =
-        elapsedDays / 365.2425;
-
-      const growthFactor =
-        Math.pow(1 + rate, years);
-
-      const exclusionYears =
-        deathDate.getUTCFullYear() - BASE_YEAR;
-
-      const exclusion =
-        BASE_EXCLUSION *
-        Math.pow(1 + inflation, exclusionYears);
-
-      const anniversary =
-        thirdAnniversary(giftDate);
-
-      const expiration =
-        parseUTCDate(ADDBACK_EXPIRATION);
+      const thirdAnniversary =
+        addCalendarYears(giftDate, 3);
 
       const addbackApplies =
-        deathDate < expiration &&
-        deathDate <= anniversary;
+        settlementDate < ADDBACK_EXPIRATION &&
+        settlementDate <= thirdAnniversary;
 
-      const giftAddback =
-        addbackApplies ? gift : 0;
+      /*
+        Individual: add back the full modeled gift.
+        Couple: add back only the survivor's assumed half.
+        First-death taxes are outside this model.
+      */
+      const giftAddback = addbackApplies
+        ? parameters.gift / parameters.people
+        : 0;
 
-      const retainEstate =
-        estate * growthFactor;
-
-      const giftEstate =
-        (estate - gift) * growthFactor;
-
-      const outsideAssets =
-        gift * growthFactor;
-
-      const retainTaxableEstate =
-        retainEstate;
-
-      const giftTaxableEstate =
-        giftEstate + giftAddback;
-
-      const retainResult = calculateNewYorkTax(
-        retainTaxableEstate,
-        exclusion
+      const growthFactor = Math.pow(
+        1 + parameters.rate / 100,
+        parameters.years
       );
 
-      const giftResult = calculateNewYorkTax(
-        giftTaxableEstate,
-        exclusion
-      );
+      const exclusionYears =
+        settlementDate.getUTCFullYear() -
+        BASE_YEAR;
+
+      const exclusion =
+        BASE_NY_EXCLUSION *
+        Math.pow(
+          1 + parameters.inflation / 100,
+          exclusionYears
+        );
+
+      const retainedEstate =
+        parameters.estate * growthFactor;
+
+      const remainingEstate =
+        (parameters.estate - parameters.gift) *
+        growthFactor;
+
+      const giftedAssets =
+        parameters.gift * growthFactor;
+
+      const giftScenarioTaxableEstate =
+        remainingEstate + giftAddback;
+
+      const retainResult =
+        calculateNewYorkTax(
+          retainedEstate,
+          exclusion
+        );
+
+      const giftResult =
+        calculateNewYorkTax(
+          giftScenarioTaxableEstate,
+          exclusion
+        );
 
       const savings =
         retainResult.tax - giftResult.tax;
@@ -944,12 +1039,14 @@
         formatMoney(savings);
 
       get("horizon").textContent =
-        years.toFixed(2) +
-        " years · " +
+        "Gift: " +
+        formatDate(giftDate) +
+        " · Settlement: " +
+        formatDate(settlementDate) +
         (
           savings < 0
-            ? "Gifting increases modeled New York tax."
-            : "New York estate tax only."
+            ? " · Gifting increases modeled New York tax."
+            : ""
         );
 
       get("exclusion").textContent =
@@ -958,33 +1055,65 @@
       get("cliff").textContent =
         formatMoney(exclusion * 1.05);
 
+      get("scenario").textContent =
+        parameters.people === 2
+          ? (
+              "Couple scenario: remaining assets pass to the survivor; " +
+              "one New York exclusion at second death. " +
+              "First-death tax is not calculated."
+            )
+          : (
+              "Individual scenario: one estate and one " +
+              "projected New York exclusion."
+            );
+
+      let addbackMessage;
+
       if (addbackApplies) {
-        get("addbackStatus").textContent =
-          "Three-year addback applies: " +
-          formatMoney(gift) +
-          " of original gift principal is included " +
-          "in the gift scenario.";
-      } else if (deathDate >= expiration) {
-        get("addbackStatus").textContent =
-          "No modeled addback: death occurs on or " +
-          "after the currently scheduled January 1, " +
-          "2032 expiration.";
+        addbackMessage =
+          "Three-year addback modeled: " +
+          formatMoney(giftAddback) +
+          (
+            parameters.people === 2
+              ? (
+                  " — the survivor’s assumed half of today’s gift. " +
+                  "First-death gift addback and tax are not calculated."
+                )
+              : " of original gift principal."
+          );
+      } else if (
+        settlementDate >= ADDBACK_EXPIRATION
+      ) {
+        addbackMessage =
+          "No gift addback under the currently scheduled " +
+          "January 1, 2032 expiration. This assumption must " +
+          "be updated if the law is extended.";
       } else {
-        get("addbackStatus").textContent =
-          "No modeled addback: death occurs after " +
-          "the third anniversary of the gift.";
+        addbackMessage =
+          "No gift addback: settlement is after the " +
+          "third anniversary of the gift.";
       }
+
+      if (giftDate.getUTCFullYear() !== BASE_YEAR) {
+        addbackMessage +=
+          " Review required: gift capacity still uses the " +
+          "2026 federal exemption, not an automatic " +
+          "current-year update.";
+      }
+
+      get("addback").textContent =
+        addbackMessage;
 
       const rows = [
         [
           "Assets remaining in estate",
-          formatMoney(retainEstate),
-          formatMoney(giftEstate)
+          formatMoney(retainedEstate),
+          formatMoney(remainingEstate)
         ],
         [
           "Gifted assets outside estate",
           formatMoney(0),
-          formatMoney(outsideAssets)
+          formatMoney(giftedAssets)
         ],
         [
           "Gift addback",
@@ -993,8 +1122,8 @@
         ],
         [
           "Modeled New York taxable estate",
-          formatMoney(retainTaxableEstate),
-          formatMoney(giftTaxableEstate)
+          formatMoney(retainedEstate),
+          formatMoney(giftScenarioTaxableEstate)
         ],
         [
           "Exclusion-credit status",
@@ -1014,11 +1143,11 @@
         [
           "Family wealth after New York tax only",
           formatMoney(
-            retainEstate - retainResult.tax
+            retainedEstate - retainResult.tax
           ),
           formatMoney(
-            giftEstate +
-            outsideAssets -
+            remainingEstate +
+            giftedAssets -
             giftResult.tax
           )
         ]
@@ -1045,7 +1174,9 @@
     }
 
     get("giftSlider").addEventListener("input", () => {
-      get("gift").value = get("giftSlider").value;
+      get("gift").value =
+        get("giftSlider").value;
+
       update();
     });
 
