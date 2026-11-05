@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Power of Gifting Today</title>
+<style>
+  :root {
+    color-scheme: light;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #20352f;
+    background: #f3f4ef;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  main { max-width: 1080px; margin: auto; padding: 48px 22px; }
+  .eyebrow {
+    color: #657b68; text-transform: uppercase;
+    letter-spacing: .16em; font-size: 12px; font-weight: 700;
+  }
+  h1 { font-size: clamp(32px, 5vw, 52px); margin: 12px 0; line-height: 1.1; }
+  .intro { max-width: 720px; color: #5a6861; line-height: 1.7; }
+  .layout { display: grid; grid-template-columns: 320px 1fr; gap: 24px; margin-top: 30px; }
+  .panel { background: white; border: 1px solid #e0e5dc; border-radius: 20px; padding: 26px; }
+  .control { margin-bottom: 25px; }
+  label { display: block; font-weight: 650; margin-bottom: 9px; }
+  input[type=number] {
+    width: 100%; padding: 11px 12px; border: 1px solid #cbd4ca;
+    border-radius: 9px; font: inherit; color: inherit; background: white;
+  }
+  input[type=range] { width: 100%; margin: 14px 0 0; accent-color: #34775e; }
+  .hint { color: #6c766f; font-size: 12px; line-height: 1.5; }
+  .hero { background: #203f34; color: white; border-radius: 15px; padding: 24px; }
+  .hero p { margin: 0; color: #c8dbcf; font-size: 14px; }
+  .hero output { display: block; font-size: clamp(32px, 5vw, 46px); font-weight: 700; margin: 8px 0; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 23px 0; }
+  .stats span { display: block; color: #657269; font-size: 13px; }
+  .stats output { display: block; font-weight: 700; font-size: 25px; margin-top: 6px; }
+  svg { display: block; width: 100%; height: auto; margin-top: 18px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 16px; font-size: 12px; color: #5a6861; }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; }
+  details { margin-top: 24px; line-height: 1.7; }
+  summary { cursor: pointer; font-weight: 650; }
+  li { margin: 8px 0; }
+  footer { margin-top: 24px; color: #68746d; font-size: 12px; line-height: 1.7; }
+  button {
+    background: #edf2eb; border: 1px solid #cbd4ca; color: #203f34;
+    padding: 10px 15px; border-radius: 9px; cursor: pointer; font: inherit;
+  }
+  a { color: #28624c; }
+  @media (max-width: 760px) {
+    main { padding-top: 28px; }
+    .layout { grid-template-columns: 1fr; }
+    .panel { padding: 21px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">An educational planning illustration</div>
+  <h1>The power of gifting today.</h1>
+  <p class="intro">
+    Explore how a one-time gift could move future appreciation outside
+    a taxable estate. Adjust the assumptions to see the potential effect.
+  </p>
+
+  <div class="layout">
+    <section class="panel" aria-label="Calculator assumptions">
+      <div class="control">
+        <label for="gift">One-time gift ($)</label>
+        <input id="gift" type="number" min="0" max="15000000"
+               step="100000" value="15000000">
+        <input id="giftSlider" aria-label="Adjust gift amount"
+               type="range" min="0" max="15000000"
+               step="100000" value="15000000">
+        <p class="hint">The $15 million cap is a modeling limit, not a determination of your available exemption.</p>
+      </div>
+      <div class="control">
+        <label for="years">Years of growth</label>
+        <input id="years" type="number" min="0" max="40" step="1" value="20">
+        <input id="yearsSlider" aria-label="Adjust years"
+               type="range" min="0" max="40" step="1" value="20">
+      </div>
+      <div class="control">
+        <label for="rate">Hypothetical annual return (%)</label>
+        <input id="rate" type="number" min="0" max="15" step="0.1" value="7">
+        <input id="rateSlider" aria-label="Adjust annual return"
+               type="range" min="0" max="15" step="0.1" value="7">
+      </div>
+      <div class="control">
+        <label for="tax">Assumed estate-tax rate (%)</label>
+        <input id="tax" type="number" min="0" max="60" step="0.1" value="40">
+        <p class="hint">A marginal-rate assumption applied to all projected appreciation—not a full estate-tax calculation.</p>
+      </div>
+      <button id="reset" type="button">Reset assumptions</button>
+    </section>
+
+    <section class="panel" aria-label="Illustrative results">
+      <div class="hero" aria-live="polite">
+        <p>Hypothetical estate tax avoided on appreciation</p>
+        <output id="savings"></output>
+        <p id="resultNote"></p>
+      </div>
+      <div class="stats">
+        <div>
+          <span>Projected value of gifted assets</span>
+          <output id="future"></output>
+        </div>
+        <div>
+          <span>Projected appreciation outside estate</span>
+          <output id="growth"></output>
+        </div>
+      </div>
+      <h2 style="font-size:17px">How the gifted assets could grow</h2>
+      <div class="legend">
+        <span><i class="dot" style="background:#b6c9b0"></i>Original gift</span>
+        <span><i class="dot" style="background:#34775e"></i>Projected appreciation</span>
+      </div>
+      <svg id="chart" viewBox="0 0 600 280" role="img"
+           aria-label="Original gift and projected appreciation over time"></svg>
+      <p class="hint">Smooth annual compounding is illustrative. Actual returns fluctuate and can be negative.</p>
+    </section>
+  </div>
+
+  <details open>
+    <summary>Important assumptions and limitations</summary>
+    <ul>
+      <li>The donor has sufficient available gift-tax exemption and pays no gift tax on the modeled transfer.</li>
+      <li>The gift is completed, and the transferred assets and subsequent appreciation are excluded from the donor's estate.</li>
+      <li>The donor's estate would otherwise be sufficiently taxable for all modeled appreciation to face the selected marginal estate-tax rate.</li>
+      <li>The same constant annual return applies whether assets are retained or gifted, with no distributions or additional contributions.</li>
+      <li>The model ignores income taxes, carryover basis versus potential basis adjustment at death, state taxes, fees, discounts, exemption changes, and future law changes. Those factors can materially change the overall benefit.</li>
+      <li>This is a one-time-gift illustration, not an annual-exclusion gifting model. It does not establish gift eligibility or remaining exemption.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>How the calculation works</summary>
+    <p>Future value = gift × (1 + annual return)<sup>years</sup>.</p>
+    <p>Appreciation = future value − original gift.</p>
+    <p>Hypothetical estate tax avoided = appreciation × assumed estate-tax rate.</p>
+    <p>The original gift is not counted as incremental estate-tax savings in this simplified exemption-funded model.</p>
+    <p>Background:
+      <a href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax"
+         target="_blank" rel="noopener noreferrer">IRS estate tax overview</a>
+      and
+      <a href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-gift-taxes"
+         target="_blank" rel="noopener noreferrer">IRS gift tax FAQs</a>.
+    </p>
+  </details>
+  <footer>
+    Educational prototype. Not tax, legal, investment, or insurance advice;
+    not a carrier illustration or a prediction of results. Consult your
+    professional advisors before acting. Calculations run in your browser;
+    this page does not submit or save your entries. Do not enter identifying
+    client information.
+  </footer>
+</main>
+
+<script>
+const el = id => document.getElementById(id);
+const dollars = n => new Intl.NumberFormat("en-US", {
+  style: "currency", currency: "USD", maximumFractionDigits: 0
+}).format(n);
+const short = n => n >= 1e6 ? "$" + (n / 1e6).toFixed(1) + "M"
+  : n >= 1e3 ? "$" + (n / 1e3).toFixed(0) + "K" : dollars(n);
+
+function update() {
+  const g = Number(el("gift").value);
+  const n = Number(el("years").value);
+  const r = Number(el("rate").value) / 100;
+  const t = Number(el("tax").value) / 100;
+  const fv = g * Math.pow(1 + r, n);
+  const growth = fv - g;
+  el("future").textContent = dollars(fv);
+  el("growth").textContent = dollars(growth);
+  el("savings").textContent = dollars(growth * t);
+  el("resultNote").textContent =
+    "After " + n + " years, assuming a " + (t * 100).toFixed(1) +
+    "% marginal estate-tax rate.";
+
+  const left = 65, right = 580, top = 20, bottom = 235;
+  const max = Math.max(fv * 1.12, 1);
+  const x = year => left + (n === 0 ? 0 : year / n) * (right - left);
+  const y = value => bottom - value / max * (bottom - top);
+  let svg = "";
+  for (let i = 0; i <= 4; i++) {
+    const value = max * i / 4;
+    svg += `<line x1="${left}" x2="${right}" y1="${y(value)}"
+      y2="${y(value)}" stroke="#e7ebe3"/>
+      <text x="${left - 8}" y="${y(value) + 4}" text-anchor="end"
+      font-size="11" fill="#657269">${short(value)}</text>`;
+  }
+  if (n > 0) {
+    const points = Array.from({length: 81}, (_, i) => {
+      const year = n * i / 80;
+      return `${x(year)},${y(g * Math.pow(1 + r, year))}`;
+    });
+    svg += `<rect x="${left}" y="${y(g)}" width="${right-left}"
+      height="${bottom-y(g)}" fill="#b6c9b0"/>
+      <polygon points="${left},${y(g)} ${points.join(" ")}
+      ${right},${y(g)}" fill="#34775e"/>`;
+    [0, n / 2, n].forEach(year => {
+      svg += `<text x="${x(year)}" y="260" text-anchor="middle"
+        font-size="12" fill="#657269">Year ${year}</text>`;
+    });
+  } else {
+    svg += `<text x="320" y="125" text-anchor="middle"
+      font-size="16" fill="#657269">No growth period selected</text>`;
+  }
+  el("chart").innerHTML = svg;
+}
+
+["gift", "years", "rate", "tax"].forEach(id => {
+  el(id).addEventListener("input", () => {
+    if (el(id).value === "" || !el(id).validity.valid) return;
+    if (el(id + "Slider")) el(id + "Slider").value = el(id).value;
+    update();
+  });
+  el(id).addEventListener("change", () => {
+    const input = el(id);
+    input.value = Math.min(Number(input.max),
+      Math.max(Number(input.min), Number(input.value) || 0));
+    if (el(id + "Slider")) el(id + "Slider").value = input.value;
+    update();
+  });
+  if (el(id + "Slider")) {
+    el(id + "Slider").addEventListener("input", () => {
+      el(id).value = el(id + "Slider").value;
+      update();
+    });
+  }
+});
+el("reset").addEventListener("click", () => {
+  const defaults = {gift: 15000000, years: 20, rate: 7, tax: 40};
+  Object.entries(defaults).forEach(([id, value]) => {
+    el(id).value = value;
+    if (el(id + "Slider")) el(id + "Slider").value = value;
+  });
+  update();
+});
+update();
+</script>
+</body>
+</html>
